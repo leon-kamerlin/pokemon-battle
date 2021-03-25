@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <button #button
+            [class.spinner]="loading"
+            [disabled]="loading"
+            mat-raised-button>{{result?.winner ? 'Start New Battle' : 'Start Poke Battle'}}</button>
+    <div *ngIf="result?.firstPoke" fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2>Name: {{result?.firstPoke?.name}}</h2>
+            <img class="poke" [src]="result.firstPoke.sprites.front_default">
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2>Name: {{result?.secondPoke?.name}}</h2>
+            <img class="poke" [src]="result.secondPoke.sprites.front_default">
+        </div>
+        <div>
+            <h3>Winner is: {{result?.winner}}</h3>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="center center" *ngIf="pageResults$ | async">
+    <ul>
+        <li *ngFor="let item of (pageResults$ | async).results">
+            {{item.name}}
+        </li>
+    </ul>
+
+    <div>
+        <button (click)="goNext()"
+                [disabled]="(pageResults$ | async).next == null"
+                mat-button>Next
+        </button>
+
+        <button (click)="goPrevious()"
+                [disabled]="(pageResults$ | async).previous == null"
+                mat-button>Previous
+        </button>
+    </div>
+</div>
+
